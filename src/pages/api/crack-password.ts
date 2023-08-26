@@ -11,9 +11,10 @@ export default async function handler(
   const start = Number(new Date()) * 1;
   let foundInDictionary = false;
   let guessed = false;
+  const passLength = Number(process.env.PASS_LENGTH)
 
-  if (password.length > 4) {
-    res.status(400).json({ error: "Password must have until 4 characters" });
+  if (password.length > passLength) {
+    res.status(400).json({ error: `Password must have until ${passLength} characters`});
   } else {
     if (useDictionary) {
       foundInDictionary = findPasswordOnDictonary(dictionary, password);
