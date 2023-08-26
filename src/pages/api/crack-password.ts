@@ -11,7 +11,7 @@ export default async function handler(
   const start = Number(new Date()) * 1;
   let foundInDictionary = false;
   let guessed = false;
-  const passLength = Number(process.env.PASS_LENGTH)
+  const passLength = Number(process.env.PASS_LENGTH)  
 
   if (password.length > passLength) {
     res.status(400).json({ error: `Password must have until ${passLength} characters`});
